@@ -1,0 +1,1 @@
+web: sh -c 'cd pingpaper_backend && gunicorn pingpaper_backend.wsgi.wsgi_heroku --log-file -'
