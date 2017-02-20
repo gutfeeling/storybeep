@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("a").click(function(event) {
+  $("span a").click(function(event) {
     event.preventDefault();
 
     $("#subscription-area").slideToggle();
