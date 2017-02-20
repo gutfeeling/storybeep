@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pipeline',
+    'alerts',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +140,33 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     BASE_DIR.child("static"),
 )
+
+STATIC_ROOT = BASE_DIR.child("staticfiles")
+
+# django-pipeline settings
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "pipeline.finders.PipelineFinder",
+    )
+
+PIPELINE = {
+    "STYLESHEETS" : {
+        "base" : {
+            "source_filenames" : (
+                "css/base.css",
+                ),
+            "output_filename" : "css/base.min.css",
+            },
+        "subscribe" : {
+            "source_filenames" : (
+                "css/subscribe.css",
+                ),
+            "output_filename" : "css/subscribe.min.css",
+            },
+        },
+    "JAVASCRIPT" : {},
+    }
