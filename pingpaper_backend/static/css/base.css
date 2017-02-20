@@ -6,9 +6,10 @@ reds
 
 
 greys (from dark to light)
-rgb(250, 250, 250)
-rgb(125, 125, 125)
 rgb(75, 75, 75)
+rgb(125, 125, 125)
+rgb(150, 150, 150)
+rgb(220, 224, 224)
 
 white
 #FFFFFF
@@ -22,21 +23,45 @@ body {
 
   padding-top: 58px;
 
-  /* setting the default font to Nunito */
+  /* setting the default font to Roboto Condensed and the default color */
 
   font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(75, 75, 75);
+
+  /* make sure there's always some space at the bottom to prevent
+     content from touching the bottom edge of the browser */
+
+  padding-bottom: 7em;
 }
+
+h1 {
+  font-size: 3.2em;
+
+  /* increase the spacing between two lines */
+
+  line-height: 1.3;
+}
+
+h3 {
+
+  /* increase the spacing between two lines */
+
+  line-height: 1.5em;
+}
+
+/* links are green */
 
 a {
   color: #00A699;
 }
 
-/* get rid of underline and outline on links */
+/* get rid of underline and outline on links and change color on hover, focus
+   etc. */
 
 a:hover, a:active, a:focus, a:active:focus {
   text-decoration: none;
   outline: none !important;
-  color:
+  color: #006B63;
 }
 
 /* change the navbar color to white and add a shadow and border */
@@ -45,7 +70,7 @@ a:hover, a:active, a:focus, a:active:focus {
   background-color: #FFFFFF;
   border: none;
   box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-  border-bottom: 1px solid #dce0e0;
+  border-bottom: 1px solid rgb(220, 224, 224);
 }
 
 /* style for brand text */
