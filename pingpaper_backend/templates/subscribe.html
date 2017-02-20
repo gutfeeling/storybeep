@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block css_block %}
+    {{ block.super }}
+    {% stylesheet 'subscribe' %}
+{% endblock %}
+
+{% block navbar_menu_items %}
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">FAQ</a>
+            </li>
+{% endblock %}
+
+
+{% block body_block %}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <h1 id="heading">
+            Curious about
+            <span class="highlight">
+              Mark Zuckerberg's Presidential ambitions?
+            </span>
+          </h1>
+          <br>
+          <h3>
+            Let us inform you when something interesting happens in this
+            story.
+          </h3>
+          <form>
+            <input type="email" placeholder="Your Email Address">
+            <button class="btn" type="submit">
+              Submit
+            </button>
+          </form>
+          <span id="existing-users-login">
+            Already have an account?
+            <a href="#">login</a>.
+          </span>
+        </div>
+      </div>
+    </div>
+{% endblock %}
