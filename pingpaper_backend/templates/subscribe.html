@@ -31,17 +31,43 @@
             Get an email when the next big thing happens in
             this ongoing story.
           </h3>
-          <form id="subscription">
-            <input type="email" placeholder="Your Email Address">
-            <button class="btn" type="submit">
-              Submit
-            </button>
-          </form>
-          <span id="existing-users-login">
-            Already have an account?
-            <a href="#">login</a>.
-          </span>
+          <div id="subscription-area">
+            <form id="subscription">
+              <input type="email" placeholder="Your Email Address">
+              <button class="btn" type="submit">
+                Submit
+              </button>
+            </form>
+            <span id="existing-users-login">
+              Already have an account?
+              <a href="#">Login</a>.
+            </span>
+          </div>
+          <div id="login-area">
+            <form id="login">
+              <div class="row">
+                <div class="col-sm-6">
+                  <input type="email" placeholder="Email">
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" placeholder="Password">
+                </div>
+              </div>
+              <button class="btn" type="submit">
+                Login
+              </button>
+            </form>
+            <span id="new-users-register">
+              Don't have an account?
+              <a href="#">Register</a>.
+            </span>
+          </div>
         </div>
       </div>
     </div>
+{% endblock %}
+
+{% block js_block %}
+{{ block.super }}
+{% javascript 'subscribe' %}
 {% endblock %}

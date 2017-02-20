@@ -18,21 +18,22 @@
 }
 
 
-#subscription {
+form {
   margin-bottom: 2em;
 }
 
-#subscription input[type="email"] {
+form input {
   background: transparent;
   border-width: 0 0 1px 0;
   border-style: solid;
   border-color: rgb(150, 150, 150);
-  width: 100%;
   margin-bottom: 1.5em;
   vertical-align: bottom;
   line-height: 2em;
   font-size: 1.4em;
+  width: 100%;
 }
+
 
 .btn {
   font-size: 1.5em;
@@ -40,4 +41,8 @@
 
 #existing-users-login {
   color: rgb(125, 125, 125);
+}
+
+#login-area {
+  display: none;
 }

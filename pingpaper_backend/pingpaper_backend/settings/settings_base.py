@@ -168,5 +168,12 @@ PIPELINE = {
             "output_filename" : "css/subscribe.min.css",
             },
         },
-    "JAVASCRIPT" : {},
+    "JAVASCRIPT" : {
+        "subscribe" : {
+            "source_filenames" : (
+                "js/subscribe.js",
+                ),
+            "output_filename" : "js/subscribe.min.js",
+            },
+        },
     }
