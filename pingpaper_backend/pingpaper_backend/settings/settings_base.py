@@ -167,13 +167,32 @@ PIPELINE = {
                 ),
             "output_filename" : "css/subscribe.min.css",
             },
+        "home" : {
+            "source_filenames" : (
+                "css/home.css",
+                ),
+            "output_filename" : "css/home.min.css",
+            },
         },
     "JAVASCRIPT" : {
+        "base" : {
+            "source_filenames" : (
+                "js/base.js",
+                ),
+            "output_filename" : "js/base.min.js",
+            },
         "subscribe" : {
             "source_filenames" : (
                 "js/subscribe.js",
                 ),
             "output_filename" : "js/subscribe.min.js",
+            },
+        "home" : {
+            "source_filenames" : (
+                "js/typed.js",
+                "js/home.js",
+                ),
+            "output_filename" : "js/home.min.js",
             },
         },
     }

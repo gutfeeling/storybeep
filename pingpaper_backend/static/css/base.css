@@ -4,6 +4,9 @@ reds
 #FF5A5F
 #FF7E82
 
+greens
+#00A699
+
 
 greys (from dark to light)
 rgb(75, 75, 75)
@@ -64,21 +67,32 @@ a:hover, a:active, a:focus, a:active:focus {
   color: #006B63;
 }
 
+/* style for brand text */
+
+.brand {
+  color: #FF5A5F !important;
+  font-family: 'Comfortaa', cursive;
+
+}
+
 /* change the navbar color to white and add a shadow and border */
 
 .navbar-default {
   background-color: #FFFFFF;
   border: none;
+  /*
   box-shadow: 0 1px 5px rgba(0,0,0,0.1);
   border-bottom: 1px solid rgb(220, 224, 224);
+  */
+  transition: box-shadow 0.3s ease-in-out;
+  transtion: border 0.3s ease-in-out;
 }
 
-/* style for brand text */
+/* increase size of brand text in the navbar */
 
 .navbar-default .navbar-brand {
-  color: #FF5A5F;
+
   font-size: 2em;
-  font-family: 'Comfortaa', cursive;
 
   /* margin bottom slightly increases the height of the navbar and centers
   the bigger brand text */
@@ -93,6 +107,10 @@ a:hover, a:active, a:focus, a:active:focus {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #FF7E82;
+}
+
+.navbar-default .navbar-brand img {
+  width: 1.1em;
 }
 
 /* make the menu items grey */
@@ -193,7 +211,7 @@ in mobile display */
 
   .navbar-default .navbar-brand {
     font-size: 2.6em;
-    margin-top: 0.24em;
+
   }
 
   /* make menu items bigger and center it vertically in the taller navbar. */

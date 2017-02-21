@@ -37,9 +37,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">
-            <!-- span><img src="{% static 'images/logo/logo_navbar.png' %}"></span-->
-            storybeep
+          <a class="navbar-brand brand" href="/">
+            <span><img src="{% static 'images/dog.svg' %}"></span>
           </a>
         </div>
 
@@ -80,6 +79,7 @@
       ga('create', 'UA-92227260-1', 'auto');
       ga('send', 'pageview');
     </script>
+    {% javascript 'base' %}
     {% endblock %}
 
   </body>

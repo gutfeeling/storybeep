@@ -1,0 +1,155 @@
+/* .typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+#slogan {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 0.5em;
+}
+
+#slogan-brand {
+  font-weight: 700;
+}
+
+#properties {
+
+  color: #00A699;
+  font-weight: 700;
+}
+
+.timeline li.topic {
+  color: #00A699;
+  font-weight: 700;
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+
+.timeline {
+  position: relative;
+  list-style: none;
+}
+
+
+
+.timeline:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0.3em;
+  background: rgb(175, 175, 175);
+}
+
+.timeline li {
+  font-size: 2em;
+  margin: 0 0 2em 0;
+  color: rgb(125, 125, 125);
+}
+
+button {
+  font-size: 0.5em !important;
+  background-color: #00A699 !important;
+}
+
+*/
+
+#slogan-and-button-container {
+  margin-top: 2em;
+  margin-bottom: 6em;
+}
+
+#slogan {
+  margin-bottom: 0.75em;
+}
+
+#slogan-brand {
+  font-weight: 700;
+}
+
+#sign-up-button {
+  font-size: 1.75em;
+}
+
+.card {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.09);
+}
+
+.card-content {
+  padding-left: 1.2em;
+  padding-right: 1em;
+}
+
+.card img {
+  width: 100%;
+}
+
+
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1em;
+  height: 100%;
+  width: 0.3em;
+  background: #00A699;
+}
+
+.heading-container {
+  position: relative;
+}
+
+.news-item h4:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -1.6em;
+  height: 0.3em;
+  width: 0.6em;
+  background: #00A699;
+}
+
+h2 {
+  margin-bottom: 2em;
+  color: #00A699;
+}
+
+.news-item {
+  margin-bottom: 3em;
+  margin-left: 1em;
+}
+
+h5 {
+  color: rgb(125, 125, 125);
+}
+
+#section-heading {
+  margin-bottom: 2em;
+  font-size: 1.5em;
+}
+
+h4 {
+  color: rgb(75, 75 ,75);
+  line-height: 1.4em;
+}
