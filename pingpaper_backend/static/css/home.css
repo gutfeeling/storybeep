@@ -97,8 +97,9 @@ button {
 }
 
 .card-content {
-  padding-left: 1.2em;
+  padding-left: 0;
   padding-right: 1em;
+  position: relative;
 }
 
 .card img {
@@ -106,42 +107,55 @@ button {
 }
 
 
-.card:before {
+.card-content:before {
   content: "";
   position: absolute;
   top: 0;
-  left: 1em;
+  left: 0;
   height: 100%;
-  width: 0.3em;
-  background: #00A699;
+  width: 0.15em;
+  background: rgb(200, 200, 200);
 }
+
 
 .heading-container {
   position: relative;
 }
 
-.news-item h4:before {
+.date-container {
+  position: relative;
+  margin-left: 1em;
+}
+
+
+.news-item h5:before {
   content: "";
   position: absolute;
   top: 50%;
-  left: -1.6em;
-  height: 0.3em;
-  width: 0.6em;
-  background: #00A699;
+  left: -1em;
+  height: 0.15em;
+  width: 0.5em;
+  background: rgb(200, 200, 200);
 }
 
 h2 {
-  margin-bottom: 2em;
-  color: #00A699;
+  padding-top: 1em;
+  padding-bottom: 1.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin: 0;
+  color: #5a5fff;
+  font-weight: 700;
+  font-size: 3em;
 }
 
 .news-item {
-  margin-bottom: 3em;
-  margin-left: 1em;
+  padding-bottom: 3em;
 }
 
 h5 {
   color: rgb(125, 125, 125);
+  margin-left: 1em;
 }
 
 #section-heading {
@@ -152,4 +166,7 @@ h5 {
 h4 {
   color: rgb(75, 75 ,75);
   line-height: 1.4em;
+  margin-bottom: 2em;
+  margin-left: 1.3em;
+  margin-right: 1.3em;
 }

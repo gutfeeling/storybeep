@@ -55,7 +55,7 @@ h3 {
 /* links are green */
 
 a {
-  color: #00A699;
+  color: #5a5fff;
 }
 
 /* get rid of underline and outline on links and change color on hover, focus
@@ -226,8 +226,8 @@ in mobile display */
   .navbar-default .nav > li > a:hover,
   .navbar-default .nav > li > a:focus,
   .navbar-default .nav > li > a:focus:hover {
-    color: #00A699;
-    box-shadow: inset 0px -6px 0px #00A699;
+    color: #5a5fff;
+    box-shadow: inset 0px -6px 0px #5a5fff;
     transition : box-shadow 0.2s ease-in-out;
   }
 

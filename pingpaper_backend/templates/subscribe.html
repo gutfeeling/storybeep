@@ -7,17 +7,8 @@
     {% stylesheet 'subscribe' %}
 {% endblock %}
 
-{% block navbar_menu_items %}
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">FAQ</a>
-            </li>
-{% endblock %}
-
-
 {% block body_block %}
+{{ block.super }}
     <div class="container">
       <div class="row">
         <div class="col-sm-offset-2 col-sm-8">

@@ -23,10 +23,11 @@
     <!-- base css -->
     {% stylesheet 'base' %}
     <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Roboto+Condensed" rel="stylesheet">
     {% endblock %}
   </head>
   <body>
+    {% block body_block %}
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -45,16 +46,18 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            {% block navbar_menu_items %}
-            {% endblock %}
+            <li>
+              <a href="login">Log In</a>
+            </li>
+            <li>
+              <a href="#">Sign Up</a>
+            </li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
       </div>
       <!-- /.container-fluid -->
     </nav>
-
-    {% block body_block %}
     {% endblock %}
 
     {% block js_block %}
