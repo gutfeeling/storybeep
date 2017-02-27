@@ -7,4 +7,4 @@ DATABASES['default'].update(db_from_env)
 
 DEBUG = False
 SECRET_KEY = get_environment_variable('DJANGO_SECRET_KEY')
-ALLOWED_HOSTS = ['pingpaper.herokuapp.com']
+ALLOWED_HOSTS = ['storybeep.herokuapp.com']
