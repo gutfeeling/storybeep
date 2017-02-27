@@ -1,0 +1,26 @@
+{% extends 'publisher-base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block css_block %}
+    {{ block.super }}
+    {% stylesheet 'login' %}
+{% endblock %}
+
+{% block body_block %}
+{{ block.super }}
+    <div class="container container-table">
+      <div class="row vertical-center-row">
+        <div class="row">
+          <div class="col-sm-offset-3 col-sm-6">
+            <form method="post" action="{% url 'add_article_view' %}">
+              {% csrf_token %}
+              {{ form.url }}
+              {{ form.story_title }}
+              <button class="btn" type="submit">Add Article</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

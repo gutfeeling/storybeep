@@ -1,0 +1,32 @@
+html {
+  /*
+  height property required to make .container-table as tall as the window
+  http://stackoverflow.com/questions/1622027/percentage-height-html-5-css
+  */
+  height: 100%;
+}
+
+body {
+  /*
+  height property required to make .container-table as tall as the window
+  http://stackoverflow.com/questions/1622027/percentage-height-html-5-css
+  */
+  height: 100%;
+  /*
+  no padding for better centering of .vertical-center-row
+  */
+  padding: 0;
+}
+
+.container-table {
+  /*
+  height is now 100 % of the parent element, which is body.
+  */
+  height: 100%;
+  display: table;
+}
+
+.vertical-center-row {
+  display: table-cell;
+  vertical-align: middle;
+}

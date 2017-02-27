@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block css_block %}
+{{ block.super }}
+    {% stylesheet 'login' %}
+{% endblock %}
+
+{% block body_block %}
+{{ block.super }}
+    <div class="container container-table">
+      <div class="row vertical-center-row">
+        <div class="row">
+          <div class="col-sm-offset-4 col-sm-4">
+            <form id="login" method="post" action="{% url 'login_view' %}">
+              {% csrf_token %}
+              {{ form.username }}
+              {{ form.password }}
+              <input type="hidden" name="next" value="{{ next }}" />
+              <button class="btn" type="submit">
+                Log In
+              </button>
+              {% if form.errors %}
+                <div>
+                  <p>
+                    There was a problem with the login. Please try again.
+                  </p>
+                </div>
+              {% endif %}
+            </form>
+            <div>
+              Don't have an account yet? <a href="/signup">Sign Up</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block js_block %}
+{{ block.super }}
+{% endblock %}

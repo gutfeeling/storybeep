@@ -1,0 +1,32 @@
+{% extends 'publisher-base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block body_block %}
+{{ block.super }}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-8">
+      {% if object_list.count > 0 %}
+        <h1> All Stories </h1>
+      {% else %}
+        <h1> You haven't added any articles yet. </h1>
+        <a href="/add-article">
+          <button>Add article</button>
+        </a>
+      {% endif %}
+      <ul>
+      {% for story in object_list %}
+      <li>
+        <h2>
+          <a href = "{% url 'story_detail_view' story_id=story.id %}">
+            {{ story.title }}
+          </a>
+        </h2>
+      </li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

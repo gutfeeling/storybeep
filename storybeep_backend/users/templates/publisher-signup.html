@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block css_block %}
+{{ block.super }}
+    {% stylesheet 'signup' %}
+{% endblock %}
+
+{% block body_block %}
+{{ block.super }}
+    <div class="container container-table">
+      <div class="row vertical-center-row">
+        <div class="row">
+          <div class="col-sm-offset-4 col-sm-4">
+            <form id="signup" method="post"
+                  action="{% url 'verify_email_and_publisher_signup_view' hmac_code=hmac_code %}">
+              {% csrf_token %}
+              {{ form.password }}
+              <button class="btn" type="submit">
+                Sign Up
+              </button>
+              {% if form.errors %}
+              <div>
+                <p>
+                  There was a problem with the values you entered. Please try again.
+                </p>
+              </div>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block js_block %}
+{{ block.super }}
+{% endblock %}

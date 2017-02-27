@@ -1,0 +1,22 @@
+#heading {
+
+  /* space between the heading and the navbar */
+
+  margin: 1.5em 0 1.5em 0;
+}
+
+#topic {
+
+  /* highlight the topic by using bold text and red theme color */
+
+  color: #FF5A5F;
+  font-weight: 700;
+}
+
+#call-to-action {
+  margin: 0 0 1.75em 0;
+}
+
+#track {
+  margin-right: 1em;
+}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block body_block %}
+{{ block.super }}
+    <h2>
+      We have sent you an email. Please click on the activation link in the
+      email to activate your account.
+    </h2>
+{% endblock %}

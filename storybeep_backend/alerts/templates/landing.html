@@ -1,0 +1,38 @@
+{% extends base_template %}
+{% load static %}
+{% load pipeline %}
+
+{% block css_block %}
+    {{ block.super }}
+    {% stylesheet 'subscribe' %}
+{% endblock %}
+
+{% block body_block %}
+{{ block.super }}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <h1 id="heading">
+            Curious about
+            <span id="topic">
+              {{ story_title }}?
+            </span>
+          </h1>
+          <h3 id="call-to-action">
+            Track this ongoing story to stay updated about any future developments.
+          </h3>
+          <a href="{% url 'start_tracking_view' %}?story={{ story_id }}">
+            <button class="tracking-btn" id="track">Track</button>
+          </a>
+          <a href="/">
+            <button class="tracking-btn">Learn more</button>
+          </a>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block js_block %}
+{{ block.super }}
+    {% javascript 'subscribe' %}
+{% endblock %}

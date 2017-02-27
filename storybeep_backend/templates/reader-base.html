@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block menu_block %}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                      role="button" aria-haspopup="true" aria-expanded="false">
+            {{ email }}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'logout_view' %}?next=/">Log Out</a></li>
+          </ul>
+        </li>
+{% endblock %}
+
+{% block google_analytics_block %}
+{% endblock %}

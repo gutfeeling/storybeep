@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block body_block %}
+{{ block.super }}
+    <h2>
+      This account has already been activated.
+    </h2>
+{% endblock %}

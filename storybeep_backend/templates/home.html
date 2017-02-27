@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block css_block %}
+{{ block.super }}
+    {% stylesheet 'home' %}
+{% endblock %}
+
+
+{% block body_block %}
+{{ block.super }}
+{% endblock %}
+
+{% block js_block %}
+{{ block.super }}
+{% endblock %}

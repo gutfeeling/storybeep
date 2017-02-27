@@ -1,0 +1,102 @@
+{% extends 'publisher-base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block css_block %}
+{{ block.super }}
+{% stylesheet 'publisher_home' %}
+{% endblock %}
+
+
+{% block body_block %}
+{{ block.super }}
+    <!--section class="container" id="add-article">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <h2>All Articles</h2>
+          <div id="articles">
+            <div class="row article">
+              <div class="col-sm-3">
+                <div class="picture-wrapper">
+                  <div class="aspect2-1">
+                    <img src="{% static 'images/berlin.jpg' %}">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-9 text-wrapper">
+                <h4>
+                  Germany outlines plans to overhaul security following Berlin
+                  attack
+                </h4>
+                <div class="time-wrapper">
+                  <span>53 minutes ago in</span>
+                  <span class="topic">Berlin Terror Attack.</span>
+                </div>
+              </div>
+            </div>
+            <div class="row article">
+              <div class="col-sm-3">
+                <div class="picture-wrapper">
+                  <div class="aspect2-1">
+                    <img src="{% static 'images/mark_zuckerberg.jpg' %}">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-9 text-wrapper">
+                <h4>
+                  Mark Zuckerberg vows to visit all US States in 2017
+                </h4>
+                <div class="time-wrapper">
+                  <span>2 hours ago in</span>
+                  <span class="topic">Mark Zuckerberg wants to be President.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </secion -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <h1>What would you like to do?</h1>
+
+          <ol>
+            <li>
+              <h2>Add an article to Storybeep</h2>
+              <p>
+                This ensures that people will be able to track the story
+                using Storybeep. If this article is a follow up on an existing
+                story, then people tracking the story will be notified shortly.
+              </p>
+              <a href="add-article">
+                <button>Add article</button>
+              </a>
+            </li>
+            <li>
+              <h2>View your stats.</h2>
+              <p>
+                Find out how many people clicked on Storybeep links on your site,
+                how many are tracking your stories and how many visited your
+                site from our notifications.
+              </p>
+              <a href="stats">
+                <button>View Stats</button>
+              </a>
+            </li>
+            <li>
+              <h2>View your stories.</h2>
+              <p>
+                Get a bird's eye view of how your stories are evolving.
+              </p>
+              <a href="stories">
+                <button>View Stories</button>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

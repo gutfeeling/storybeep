@@ -1,0 +1,25 @@
+{% extends 'publisher-base.html' %}
+{% load static %}
+{% load pipeline %}
+
+{% block body_block %}
+{{ block.super }}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <h1> {{ story.title }} </h1>
+          <ul>
+          {% for article in object_list %}
+          <li>
+            <h3>
+              <a href = "{{ article.url }}">
+                {{ article.title }}
+              </a>
+            </h3>
+          </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+{% endblock %}
