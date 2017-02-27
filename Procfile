@@ -1,1 +1,1 @@
-web: sh -c 'cd pingpaper_backend && gunicorn pingpaper_backend.wsgi.wsgi_heroku --log-file -'
+web: sh -c 'cd storybeep_backend && gunicorn storybeep_backend.wsgi.wsgi_heroku --log-file -'
