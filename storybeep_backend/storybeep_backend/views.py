@@ -48,9 +48,9 @@ class HomeView(CommonContextMixin, SessionMixin, TemplateView):
         if self.request.user.is_authenticated:
             user = self.request.user
             if user.is_publisher:
-                self.template_name = "publisher-home.html"
+                self.template_name = "publisher_home.html"
             else:
-                self.template_name = "reader-home.html"
+                self.template_name = "reader_home.html"
 
                 #If the reader logs in after visiting a landing page, then
                 #this line ensures that he automatically starts tracking the

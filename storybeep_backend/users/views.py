@@ -89,7 +89,7 @@ class SignupSuccessfulView(TemplateView):
     email with a verification link has been sent.
     """
 
-    template_name = "signup-successful.html"
+    template_name = "signup_successful.html"
 
 
 class VerifyEmailView(RedirectView):
@@ -137,7 +137,7 @@ class EmailVerificationFailedView(TemplateView):
     tampered
     """
 
-    template_name = "email-verification-failed.html"
+    template_name = "email_verification_failed.html"
 
 
 class PublisherSignupView(FormView):
@@ -149,7 +149,7 @@ class PublisherSignupView(FormView):
     and redirected to the home page
     """
 
-    template_name = "publisher-signup.html"
+    template_name = "publisher_signup.html"
     form_class = PublisherSignupForm
     success_url = reverse_lazy("home_view")
 
@@ -208,4 +208,4 @@ class PublisherSignupView(FormView):
 class EmailAlreadyVerifiedView(TemplateView):
     """This is shown if the email is already verified"""
 
-    template_name = "email-already-verified.html"
+    template_name = "email_already_verified.html"

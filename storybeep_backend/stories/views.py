@@ -30,7 +30,7 @@ class AddArticleView(PublisherOnlyAccessMixin, CommonContextMixin, FormView):
     corresponding to the article.
     """
 
-    template_name = "add-article.html"
+    template_name = "add_article.html"
     form_class = AddArticleForm
 
     def form_valid(self, form):
@@ -59,7 +59,7 @@ class StoryListView(PublisherOnlyAccessMixin, CommonContextMixin, ListView):
 class StoryDetailView(CreatorOnlyAccessMixin, CommonContextMixin, ListView):
 
     model = Article
-    template_name = "story-detail.html"
+    template_name = "story_detail.html"
 
     def get_creator(self):
         story_id = self.kwargs["story_id"]

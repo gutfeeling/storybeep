@@ -26,9 +26,9 @@ class LandingView(CommonContextMixin, TemplateView):
         if user.is_authenticated:
             #Use different templates for logged in users
             if user.is_publisher:
-                context["base_template"] = "publisher-base.html"
+                context["base_template"] = "publisher_base.html"
             else:
-                context["base_template"] = "reader-base.html"
+                context["base_template"] = "reader_base.html"
 
         else:
             context["base_template"] = "base.html"

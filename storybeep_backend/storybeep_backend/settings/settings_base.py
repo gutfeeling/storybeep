@@ -164,11 +164,11 @@ PIPELINE = {
                 ),
             "output_filename" : "css/base.min.css",
             },
-        "subscribe" : {
+        "landing" : {
             "source_filenames" : (
-                "css/subscribe.css",
+                "css/landing.css",
                 ),
-            "output_filename" : "css/subscribe.min.css",
+            "output_filename" : "css/landing.min.css",
             },
         "home" : {
             "source_filenames" : (
@@ -195,14 +195,6 @@ PIPELINE = {
                 "css/publisher_home.css",
                 ),
             "output_filename" : "css/publisher_home.min.css",
-            },
-        },
-    "JAVASCRIPT" : {
-        "subscribe" : {
-            "source_filenames" : (
-                "js/subscribe.js",
-                ),
-            "output_filename" : "js/subscribe.min.js",
             },
         },
     }
