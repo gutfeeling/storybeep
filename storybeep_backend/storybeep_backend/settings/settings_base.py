@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'stories',
     'alerts',
     'django.contrib.sites',
+    'django_rq',
 ]
 
 MIDDLEWARE = [
@@ -213,3 +214,9 @@ EMAIL_HOST_PASSWORD = get_environment_variable("EMAIL_HOST_PASSWORD")
 MAILER = "mailtest@storybeep.com"
 
 SITE_ID = 4
+
+RQ_QUEUES = {
+    "default" : {
+        "URL" : os.getenv("REDISTOGO_URL", "redis://localhost:6379"),
+        },
+}

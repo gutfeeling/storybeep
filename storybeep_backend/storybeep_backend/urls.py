@@ -28,4 +28,5 @@ urlpatterns = [
     url(r"^", include("users.urls")),
     url(r"^", include("alerts.urls")),
     url(r"^", include("stories.urls")),
+    url(r"^django-rq/", include("django_rq.urls")),
     ]
