@@ -30,8 +30,13 @@ class SessionMixin(object):
         if story_id is not None:
             try:
                 story = Story.objects.get(id = story_id)
-                new_alert = Alert(story = story, user = user)
-                new_alert.save()
+                try:
+                    Alert.objects.get(story = story, user = user)
+                    # inform the user that he is already subscribed
+                    # to this story
+                except Alert.DoesNotExist:
+                    new_alert = Alert(story = story, user = user)
+                    new_alert.save()
             except Story.DoesNotExist:
                 pass
             self.request.session["wants_to_track"] = None
