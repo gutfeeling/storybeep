@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.contrib.sites.models import Site
 from django.db import transaction
 from django.conf import settings
+import django_rq
 
 # not using get_user_model() because this unnecessarily obfuscates code
 # by referring to email as username.
@@ -113,7 +114,8 @@ class SignupForm(forms.Form):
         except AttributeError:
             raise ImproperlyConfigured("Please set the MAILER settings.")
 
-        user.send_email(
+        django_rq.enqueue(
+            user.send_email,
             subject = "Verify your email.",
             message = link_absolute,
             from_email = mailer,
