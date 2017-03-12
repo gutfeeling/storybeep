@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if !mso]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]-->
+    <title>{{ story_title }}</title>
+  </head>
+  <body style="padding: 0;margin: 0;">
+    <table style="border-collapse: collapse; border: 0; width: 100%;
+           background-color: #FFFFFF;">
+      <tr>
+        <td align="center" style="vertical-align: top; padding: 0;">
+          <!--[if (gte mso 9)|(IE)]>
+          <table style="border-collapse: collapse; border: 0; width: 600px;">
+            <tr>
+              <td>
+          <![endif]-->
+                <table style="border-collapse: collapse; border: 0;
+                       width: 100%; max-width:600px;">
+                  <tr>
+                    <td align="left" style="vertical-align: top;
+                        padding: 20px 20px 10px 20px;
+                        border-bottom: 1px solid #C8C8C8;
+                        border-top: 0; border-left: 0; border-right: 0;">
+                      <img src="{{ storybeep_logo_url }}" alt="Storybeep logo">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" style="vertical-align: top;
+                        padding: 40px 20px 10px 20px;
+                        font-family: Georgia, serif; font-size: 32px;
+                        color: #7D7D7D;">
+                        {{ article_title }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" style="vertical-align: top;
+                        padding: 30px 20px 30px 20px;">
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+                           xmlns:w="urn:schemas-microsoft-com:office:word"
+                           href="http://" style="height:50px;
+                           v-text-anchor:middle;width:200px;"
+                           arcsize="8%" stroke="f" fillcolor="#FF5A5F">
+                          <w:anchorlock/>
+                          <center>
+                        <![endif]-->
+                        <a href="{{ article_url }}"
+                           style="background-color:#FF5A5F;
+                           border-radius:4px; color:#FFFFFF;
+                           display:inline-block; font-family:sans-serif;
+                           font-size:18px; font-weight:bold; line-height:50px;
+                           text-align:center; text-decoration:none; width:200px;
+                           -webkit-text-size-adjust:none;">
+                           Read the article
+                         </a>
+                        <!--[if mso]>
+                          </center>
+                        </v:roundrect>
+                        <![endif]-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" style="vertical-align: top;
+                        padding: 20px 20px 40px 20px;
+                        border-bottom: 1px solid #C8C8C8;
+                        border-top: 0; border-left: 0; border-right: 0;">
+                        <img src="{{ article_picture_url }}"
+                             style="width: 100%;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" style="vertical-align: top;
+                        padding: 20px; color:  #969696;
+                        font-family: sans-serif; font-size: 14px;">
+                        <div style="padding-bottom: 10px;">
+                          Sent with
+                          <span style="color: #FF5A5F">
+                            &hearts;
+                          </span> from Storybeep.
+                        </div>
+                        <div>
+                          If you are no longer interested in this topic, you can
+                          <a href="{{ unsubscribe_url }}"
+                             style="color: #0088CC">
+                            unsubscribe
+                          </a>.
+                        </div>
+                    </td>
+                  </tr>
+                </table>
+          <!--[if (gte mso 9)|(IE)]>
+              </td>
+            </tr>
+          </table>
+          <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

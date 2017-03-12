@@ -95,6 +95,14 @@ class StartTrackingView(View):
 class StopTrackingView(ReaderOnlyAccessMixin, View):
     """Stop tracking a story"""
 
+    def get_alert_id(self):
+        alert_id = self.kwargs.get("alert_id", None)
+        try:
+            alert_id = int(alert_id)
+            return alert_id
+        except ValueError:
+            raise Http404
+
     def test_func(self, *args, **kwargs):
         """Assures that only the correct user can perform this
         destructive action
@@ -102,8 +110,7 @@ class StopTrackingView(ReaderOnlyAccessMixin, View):
 
         can_access = super(StopTrackingView, self).test_func(*args, **kwargs)
         if can_access:
-            alert_id = self.kwargs.get("alert_id", None)
-
+            alert_id = self.get_alert_id()
             try:
                 alert = Alert.objects.get(id = alert_id)
                 if self.request.user == alert.user:
@@ -118,9 +125,9 @@ class StopTrackingView(ReaderOnlyAccessMixin, View):
 
         return can_access
 
-    def post(self, *args, **kwargs):
+    def get(self, *args, **kwargs):
 
-        alert_id = self.kwargs.get("alert_id", None)
+        alert_id = self.get_alert_id()
 
         try:
             this_alert = Alert.objects.get(id = alert_id)
