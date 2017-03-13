@@ -25,7 +25,7 @@ class Article(models.Model):
 
         current_site = Site.objects.get_current()
         domain = current_site.domain
-        
+
         # change http to https at some point
         storybeep_logo_url = ("http://{0}/static/images/"
             "storybeep_logo.png".format(domain))
@@ -54,7 +54,7 @@ class Article(models.Model):
                 )
 
             send_mail(
-                subject = "{0} - {1}".format(self.story.title, self.title),
+                subject = "News on {0}".format(self.story.title),
                 message = text_message,
                 html_message = html_message,
                 from_email = mailer,
