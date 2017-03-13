@@ -9,10 +9,10 @@
     <title>{{ story_title }}</title>
   </head>
   <body style="padding: 0;margin: 0;">
-    <table style="border-collapse: collapse; border: 0; width: 100%;">
+    <table style="border-collapse: collapse; border: 0; width: 100%;
+           background-color: #F2F2F2;">
       <tr>
-        <td align="center" style="vertical-align: top; padding: 0;
-            background-color: #F2F2F2;">
+        <td align="center" style="vertical-align: top; padding: 0;">
           <!--[if (gte mso 9)|(IE)]>
           <table style="border-collapse: collapse; border: 0; width: 600px;">
             <tr>
@@ -21,8 +21,8 @@
                 <table style="border-collapse: collapse; border: 0;
                        width: 100%; max-width:600px;">
                  <tr>
-                   <td align="left" style="vertical-align: top; padding: 40px 0px 40px 20px;
-                     background-color: #F2F2F2;">
+                   <td align="left" style="vertical-align: top;
+                       padding: 40px 0px 40px 20px;">
                      <img src="{{ storybeep_logo_url }}" alt="Storybeep logo">
                    </td>
                  </tr>
@@ -31,14 +31,14 @@
                         padding: 0px 20px 0px 20px;
                         font-family: Arial, sans-serif; font-size: 16px;
                         color: #7D7D7D; line-height: 24px;">
-                    There is news on
-                    <span style="font-weight: bold;">
-                      Berlin Christmas Market Attack,
-                    </span>
-                    which you are tracking on Storybeep.
-                    <a href="{{ article_url }}" style="color: #0088CC">
-                      Read it now.
-                    </a>
+                      There is news on
+                      <span style="font-weight: bold;">
+                        {{ story_title }},
+                      </span>
+                      which you are tracking on Storybeep.
+                      <a href="{{ article_url }}" style="color: #0088CC">
+                        Read it now.
+                      </a>
                     </td>
                   </tr>
                   <tr>
@@ -48,16 +48,15 @@
                              background-color: #FFFFFF;">
                         <tr>
                           <td align="center" style="vertical-align: top;
-                              padding: 40px 30px 0px 30px;
+                              padding: 60px 30px 0px 30px;
                               font-family: Georgia, serif; font-size: 32px;
                               color: #323232; line-height: 40px;">
-                              Man wrongly arrested over Berlin attack says he
-                              fears for his life
+                              {{ article_title }}
                           </td>
                         </tr>
                         <tr>
                           <td align="center" style="vertical-align: top;
-                              padding: 40px 10px 50px 10px;">
+                              padding: 40px 30px 60px 30px;">
                               <!--[if mso]>
                               <v:roundrect
                                  xmlns:v="urn:schemas-microsoft-com:vml"
@@ -89,16 +88,16 @@
                   </tr>
                   <tr>
                     <td align="left" style="vertical-align: top;
-                        padding: 60px 20px 20px 20px; color:  #969696;
+                        padding: 60px 20px 40px 20px; color:  #7D7D7D;
                         font-family: Arial, sans-serif; font-size: 14px;">
-                        <div style="padding-bottom: 8px;">
+                        <div style="padding-bottom: 20px;">
                           Sent with
                           <span style="color: #FF5A5F">
                             &hearts;
                           </span> from Storybeep.
                         </div>
                         <div>
-                          No longer interested in this topic?
+                          No longer interested in this story?
                           <a href="{{ unsubscribe_url }}"
                              style="color: #0088CC">
                             Unsubscribe.
