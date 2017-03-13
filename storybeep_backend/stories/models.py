@@ -57,7 +57,7 @@ class Article(models.Model):
                 subject = "News on {0}".format(self.story.title),
                 message = text_message,
                 html_message = html_message,
-                from_email = mailer,
+                from_email = "Storybeep <{0}>".format(mailer),
                 recipient_list = [recipient_email,],
                 fail_silently = False,
                 )
