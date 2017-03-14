@@ -1,6 +1,7 @@
 {% extends base_template %}
 {% load static %}
 {% load pipeline %}
+{% load i18n %}
 
 {% block css_block %}
     {{ block.super }}
@@ -13,19 +14,25 @@
       <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
           <h1 id="heading">
+            {% blocktrans %}
             Curious about
             <span id="topic">
               {{ story_title }}?
             </span>
+            {% endblocktrans %}
           </h1>
           <h3 id="call-to-action">
-            Track this ongoing story to stay updated about any future developments.
+            {% trans "Track this ongoing story to stay updated about any future developments." %}
           </h3>
           <a href="{% url 'start_tracking_view' %}?story={{ story_id }}">
-            <button class="tracking-btn" id="track">Track</button>
+            <button class="tracking-btn" id="track">
+              {% trans "Track" %}
+            </button>
           </a>
           <a href="/">
-            <button class="tracking-btn">Learn more</button>
+            <button class="tracking-btn">
+              {% trans "Learn more" %}
+            </button>
           </a>
         </div>
       </div>

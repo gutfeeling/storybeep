@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load pipeline %}
+{% load i18n %}
 
 {% block css_block %}
 {{ block.super }}
@@ -18,7 +19,7 @@
               {{ form.email }}
               {{ form.password }}
               <button class="btn" type="submit">
-                Sign Up
+                {% trans "Sign Up" %}
               </button>
               {% if form.errors %}
               <div>
@@ -29,7 +30,10 @@
               {% endif %}
             </form>
             <div>
-              Already have an account? <a href="/login">Log In</a>.
+              {% trans "Already have an account?" %}
+              <a href="/login">
+                {% trans "Log In" %}
+              </a>.
             </div>
           </div>
         </div>

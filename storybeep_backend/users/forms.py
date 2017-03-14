@@ -2,7 +2,7 @@ from urllib.parse import urljoin
 
 from django import forms
 from django.contrib.auth.forms import UsernameField, AuthenticationForm
-from django.utils.translation import gettext, gettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 from django.core import signing
 from django.urls import reverse
 from django.contrib.sites.models import Site
@@ -24,7 +24,7 @@ class LoginForm(AuthenticationForm):
         max_length = 254,
         widget = forms.TextInput(
             attrs = {"autofocus" : True,
-                     "placeholder" : "Your Email"
+                     "placeholder" : _("Your Email"),
                      }
             )
         )
@@ -33,7 +33,7 @@ class LoginForm(AuthenticationForm):
         label = _("Password"),
         strip = False,
         widget = forms.PasswordInput(
-            attrs = {"placeholder" : "Password"}
+            attrs = {"placeholder" : _("Password")}
             )
         )
 
@@ -55,13 +55,13 @@ class SignupForm(forms.Form):
 
     email = forms.EmailField(
         widget = forms.TextInput(
-            attrs = {"placeholder" : "Your Email"}
+            attrs = {"placeholder" : _("Your Email")}
             )
         )
 
     password = forms.CharField(
         widget = forms.PasswordInput(
-            attrs = {"placeholder" : "Password"}
+            attrs = {"placeholder" : _("Password")}
             )
         )
 
@@ -126,7 +126,7 @@ class PublisherSignupForm(forms.Form):
 
     password = forms.CharField(
         widget = forms.PasswordInput(
-            attrs = {"placeholder" : "Password"}
+            attrs = {"placeholder" : _("Password")}
             )
         )
 

@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html>
-  {% load static %}
-  {% load pipeline %}
+
+{% load static %}
+{% load pipeline %}
+{% load i18n %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
   <head>
+
     {% block meta_block %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +17,6 @@
 
     {% block title_block %}
     {% endblock %}
-
 
     {% block css_block %}
     <!-- minified bootstrap css from CDN -->
@@ -25,8 +29,10 @@
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Roboto+Condensed" rel="stylesheet">
     {% endblock %}
+
   </head>
   <body>
+
     {% block body_block %}
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -46,14 +52,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
+
             {% block menu_block %}
             <li>
-              <a href="/login">Log In</a>
+              <a href="/login">{% trans "Log In" %}</a>
             </li>
             <li>
-              <a href="/signup">Sign Up</a>
+              <a href="/signup">{% trans "Sign Up" %}</a>
             </li>
             {% endblock %}
+            
           </ul>
         </div>
         <!-- /.navbar-collapse -->
