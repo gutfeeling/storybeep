@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.template.loader import render_to_string
+from django.utils import translation
 import django_rq
 
 from alerts.models import Alert
@@ -34,24 +35,28 @@ class Article(models.Model):
 
         for alert in alert_list:
             recipient_email = alert.user.email
+            recipient_language =  alert.user.settings.language
+            print("{0} {1}".format(recipient_email, recipient_language))
             unsubscribe_url = "http://{0}/stop-tracking/{1}/".format(domain,
                 alert.id)
 
-            text_message = render_to_string("email_notification.txt",
-                {"story_title" : self.story.title,
-                 "article_url" : self.url,
-                 }
-                )
+            with translation.override(recipient_language):
 
-            html_message = render_to_string("email_notification.html",
-                {"story_title" : self.story.title,
-                 "storybeep_logo_url" : storybeep_logo_url,
-                 "article_title" : self.title,
-                 "article_url" : self.url,
-                 "article_picture_url" : self.image_url,
-                 "unsubscribe_url" : unsubscribe_url,
-                 }
-                )
+                text_message = render_to_string("email_notification.txt",
+                    {"story_title" : self.story.title,
+                     "article_url" : self.url,
+                     }
+                    )
+
+                html_message = render_to_string("email_notification.html",
+                    {"story_title" : self.story.title,
+                     "storybeep_logo_url" : storybeep_logo_url,
+                     "article_title" : self.title,
+                     "article_url" : self.url,
+                     "article_picture_url" : self.image_url,
+                     "unsubscribe_url" : unsubscribe_url,
+                     }
+                    )
 
             send_mail(
                 subject = "News on {0}".format(self.story.title),

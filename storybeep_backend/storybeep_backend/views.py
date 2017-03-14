@@ -1,5 +1,7 @@
 from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.utils.translation import LANGUAGE_SESSION_KEY
 
 from stories.models import Story
 from alerts.models import Alert
@@ -65,3 +67,18 @@ class HomeView(CommonContextMixin, SessionMixin, TemplateView):
                 context["object_list"] = Alert.objects.filter(user = user)
 
         return context
+
+
+class ChangeLanguageView(RedirectView):
+
+    def get_redirect_url(self):
+        language = self.request.GET.get("language", None)
+        redirect_url = self.request.GET.get("next", None)
+
+        if language is not None:
+            self.request.session[LANGUAGE_SESSION_KEY] = language
+
+        if redirect_url is None:
+            redirect_url = "/"
+
+        return redirect_url

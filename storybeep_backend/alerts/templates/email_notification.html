@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -31,13 +32,15 @@
                         padding: 0px 20px 0px 20px;
                         font-family: Arial, sans-serif; font-size: 16px;
                         color: #7D7D7D; line-height: 24px;">
+                      {% blocktrans %}
                       There is news on
                       <span style="font-weight: bold;">
                         {{ story_title }},
                       </span>
                       which you are tracking on Storybeep.
+                      {% endblocktrans %}
                       <a href="{{ article_url }}" style="color: #0088CC">
-                        Read it now.
+                        {% trans "Read it now." %}
                       </a>
                     </td>
                   </tr>
@@ -76,7 +79,7 @@
                                  line-height:50px; text-align:center;
                                  text-decoration:none; width:200px;
                                  -webkit-text-size-adjust:none;">
-                                 Read it now &rarr;
+                                 {% trans "Read it now" %} &rarr;
                                </a>
                               <!--[if mso]>
                                 </center>
@@ -92,16 +95,18 @@
                         padding: 60px 20px 40px 20px; color:  #7D7D7D;
                         font-family: Arial, sans-serif; font-size: 14px;">
                         <div style="padding-bottom: 12px;">
+                          {% blocktrans %}
                           Sent with
                           <span style="color: #FF5A5F">
                             &hearts;
                           </span> from Storybeep.
+                          {% endblocktrans %}
                         </div>
                         <div>
-                          No longer interested in this story?
+                          {% trans "No longer interested in this story?" %}
                           <a href="{{ unsubscribe_url }}"
                              style="color: #0088CC">
-                            Unsubscribe.
+                            {% trans "Unsubscribe." %}
                           </a>
                         </div>
                     </td>

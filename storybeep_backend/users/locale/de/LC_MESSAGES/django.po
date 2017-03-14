@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 12:26+0100\n"
+"POT-Creation-Date: 2017-03-14 21:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: users/forms.py:27 users/forms.py:58
+#: users/forms.py:28 users/forms.py:59
 msgid "Your Email"
 msgstr "E-Mail-Adresse"
 
-#: users/forms.py:33 users/forms.py:36 users/forms.py:64 users/forms.py:129
+#: users/forms.py:34 users/forms.py:37 users/forms.py:65 users/forms.py:136
 msgid "Password"
 msgstr "Passwort"
 

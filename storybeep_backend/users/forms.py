@@ -3,6 +3,7 @@ from urllib.parse import urljoin
 from django import forms
 from django.contrib.auth.forms import UsernameField, AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import get_language
 from django.core import signing
 from django.urls import reverse
 from django.contrib.sites.models import Site
@@ -12,7 +13,7 @@ import django_rq
 
 # not using get_user_model() because this unnecessarily obfuscates code
 # by referring to email as username.
-from users.models import StorybeepUser
+from users.models import StorybeepUser, Settings
 from utils.sign import get_hmac_code
 
 
@@ -91,6 +92,12 @@ class SignupForm(forms.Form):
             # we should actually use signals to send the email
             # and give the user the resend option.
             new_user = StorybeepUser.objects.create_user(email, password)
+
+            # set default settings for the user
+            language = get_language()
+            new_user_settings = Settings(user = new_user, language = language)
+            new_user_settings.save()
+
             self.send_verification_email(new_user)
 
         return new_user
@@ -130,10 +137,17 @@ class PublisherSignupForm(forms.Form):
             )
         )
 
-    def save(self, email):
+    def save(self, email, language):
         password = self.cleaned_data["password"]
-        new_user = StorybeepUser.objects.create_user(email, password)
-        new_user.is_publisher = True
-        new_user.email_verified = True
-        new_user.save()
+
+        with transaction.atomic():
+
+            new_user = StorybeepUser.objects.create_user(email, password)
+            new_user.is_publisher = True
+            new_user.email_verified = True
+            new_user.save()
+
+            new_user_settings = Settings(user = new_user, language = language)
+            new_user_settings.save()
+
         return new_user

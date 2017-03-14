@@ -17,13 +17,18 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 
-from .views import HomeView
+from .views import HomeView, ChangeLanguageView
 
 urlpatterns = [
     url(
         regex  = r"^$",
         view = HomeView.as_view(),
         name = "home_view",
+        ),
+    url(
+        regex  = r"^change-language$",
+        view = ChangeLanguageView.as_view(),
+        name = "change_language_view",
         ),
     url(r"^", include("users.urls")),
     url(r"^", include("alerts.urls")),

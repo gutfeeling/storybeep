@@ -123,6 +123,10 @@ a:hover, a:active, a:focus, a:active:focus {
   outline: none;
 }
 
+.navbar-default .nav > li.dropdown > a > img {
+  width: 1.8em;
+}
+
 .navbar-default .nav .caret {
   margin-left: 0.5em;
 }

@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from django.contrib.auth import login
 from django.shortcuts import redirect
+from django.utils.translation import LANGUAGE_SESSION_KEY
 
 from storybeep_backend.views import SessionMixin
 from utils.sign import validate_code
@@ -76,6 +77,12 @@ class SignupView(SessionMixin, FormView):
     def form_valid(self, form):
 
         new_user = form.save()
+
+        # set the language preference of the user's session based on
+        # the user's default settings
+
+        language = new_user.settings.language
+        self.request.session[LANGUAGE_SESSION_KEY] = language
 
         # this ensures the user automatically  starts tracking the story in
         # the landing page after the sign up process is complete.
@@ -163,43 +170,46 @@ class PublisherSignupView(FormView):
 
         return context
 
-    def check_integrity(self):
-        """Checks if the link is valid"""
+    def get_publisher(self):
+        """Checks if the link is valid and return the verified publisher
+        object
+        """
 
         hmac_code = self.kwargs["hmac_code"]
-        self.email = validate_code(hmac_code)
+        email = validate_code(hmac_code)
 
-        if self.email is None:
+        if email is None:
             #This should only happen if the verification link has been
             # manually tampered
             return redirect(reverse_lazy("email_verification_failed_view"))
 
         try:
-            #This check should always work out. I am being extra
-            #defensive.
-            publisher = VerifiedPublisher.objects.get(email = self.email)
-        except VerifiedPublisher.DoesNotExist:
-            return redirect(reverse_lazy("email_verification_failed_view"))
-
-        try:
-            user = StorybeepUser.objects.get(email = self.email)
+            user = StorybeepUser.objects.get(email = email)
             #This happens if the link is being clicked the second time.
             return redirect(reverse_lazy("already_verified_view"))
         except StorybeepUser.DoesNotExist:
             pass
 
+        try:
+            #This check should always work out. I am being extra
+            #defensive.
+            publisher = VerifiedPublisher.objects.get(email = email)
+            return publisher
+        except VerifiedPublisher.DoesNotExist:
+            return redirect(reverse_lazy("email_verification_failed_view"))
+
     def get(self, *args, **kwargs):
 
-        self.check_integrity()
+        publisher = self.get_publisher()
 
         return super(PublisherSignupView, self).get(*args, **kwargs)
 
     def form_valid(self, form):
 
-        self.check_integrity()
+        publisher = self.get_publisher()
 
         #Add the publisher as an user and log him in.
-        user = form.save(self.email)
+        user = form.save(publisher.email, publisher.language)
         login(self.request, user)
 
         return super(PublisherSignupView, self).form_valid(form)

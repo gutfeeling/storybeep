@@ -1,3 +1,5 @@
+{% load i18n %}
+{% blocktrans %}
 There is a new article on {{ story_title }}, a topic that
 you are tracking on storybeep.
 
@@ -6,3 +8,4 @@ Read the article to find out more.
 {{ article_url }}
 
 - sent with love from storybeep.
+{% endblocktrans %}

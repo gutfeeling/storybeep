@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 
 from django.core.exceptions import ImproperlyConfigured
+from django.utils.translation import ugettext_lazy as _
 from unipath import Path
 
 def get_environment_variable(var_name):
@@ -223,3 +224,8 @@ RQ_QUEUES = {
 }
 
 LOCALE_PATHS = [BASE_DIR.child("locale"),]
+
+LANGUAGES = [
+    ('de', _('German')),
+    ('en', _('English')),
+]

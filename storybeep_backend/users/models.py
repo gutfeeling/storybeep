@@ -77,6 +77,7 @@ class VerifiedPublisher(models.Model):
     he can start using his account.
     """
     email = models.EmailField(unique=True)
+    language = models.CharField(max_length = 10)
 
     def save(self, *args, **kwargs):
         """ We override the save method to automatically send an invitation
@@ -121,3 +122,14 @@ class VerifiedPublisher(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class Settings(models.Model):
+
+    user = models.OneToOneField(StorybeepUser)
+    # how many characters do we actually need?
+    language = models.CharField(max_length = 10)
+
+    def __str__(self):
+        return "user: {0} language: {1}".format(self.user.email,
+            self.language)
