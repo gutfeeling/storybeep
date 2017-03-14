@@ -1,0 +1,1 @@
+python storybeep_backend/manage.py compilemessages
