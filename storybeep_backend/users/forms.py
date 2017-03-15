@@ -151,3 +151,16 @@ class PublisherSignupForm(forms.Form):
             new_user_settings.save()
 
         return new_user
+
+
+class SettingsForm(forms.Form):
+
+    language = forms.ChoiceField(choices = settings.LANGUAGES)
+
+    def save(self, user):
+
+        settings = user.settings
+        settings.language = self.cleaned_data["language"]
+        settings.save()
+
+        return settings

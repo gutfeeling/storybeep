@@ -1,0 +1,23 @@
+{% extends base_template %}
+{% load static %}
+{% load pipeline %}
+{% load i18n %}
+
+{% block body_block %}
+{{ block.super }}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <h1>Settings</h1>
+          <form action="/settings/" method="post">
+              {% csrf_token %}
+              {{ form }}
+              <br>
+              <button class="btn" type="submit">
+                Save
+              </button>
+          </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}

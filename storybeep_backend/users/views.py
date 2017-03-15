@@ -5,12 +5,13 @@ from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from django.contrib.auth import login
 from django.shortcuts import redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from storybeep_backend.views import SessionMixin
+from storybeep_backend.views import SessionMixin, CommonContextMixin
 from utils.sign import validate_code
 from utils.language import set_language_in_session
 from .models import StorybeepUser, VerifiedPublisher
-from .forms import SignupForm, PublisherSignupForm
+from .forms import SignupForm, PublisherSignupForm, SettingsForm
 
 
 class PublisherOnlyAccessMixin(UserPassesTestMixin):
@@ -220,3 +221,35 @@ class EmailAlreadyVerifiedView(TemplateView):
     """This is shown if the email is already verified"""
 
     template_name = "email_already_verified.html"
+
+
+class SettingsView(LoginRequiredMixin, CommonContextMixin, FormView):
+
+    form_class = SettingsForm
+    template_name = "settings.html"
+    success_url = reverse_lazy("home_view")
+
+    def get_context_data(self, *args, **kwargs):
+
+        context = super(SettingsView, self).get_context_data(
+            *args, **kwargs)
+
+        user = self.request.user
+        if user.is_publisher:
+            context["base_template"] = "publisher_base.html"
+        else:
+            context["base_template"] = "reader_base.html"
+
+        return context
+
+    def get_initial(self):
+
+        language = self.request.user.settings.language
+        return {"language" : language}
+
+    def form_valid(self, form):
+
+        settings = form.save(self.request.user)
+        set_language_in_session(settings.language, self.request.session)
+
+        return super(SettingsView, self).form_valid(form)

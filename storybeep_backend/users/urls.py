@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 from .views import (
     SignupView, SignupSuccessfulView, VerifyEmailView,
     EmailVerificationFailedView, PublisherSignupView,
-    EmailAlreadyVerifiedView,
+    EmailAlreadyVerifiedView, SettingsView
     )
 
 from .forms import LoginForm
@@ -56,5 +56,10 @@ urlpatterns = [
         r"^logout/$",
         auth_views.logout,
         name = "logout_view",
+    ),
+    url(
+        r"^settings/$",
+        SettingsView.as_view(),
+        name = "settings_view",
     ),
     ]
