@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 21:05+0100\n"
+"POT-Creation-Date: 2017-03-15 10:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: alerts/templates/email_notification.html:34
+#: alerts/templates/email_notification.html:35
 #, python-format
 msgid ""
 "\n"
@@ -37,15 +37,15 @@ msgstr ""
 "                      dem du auf Storybeep folgst.\n"
 "                      "
 
-#: alerts/templates/email_notification.html:42
+#: alerts/templates/email_notification.html:43
 msgid "Read it now."
 msgstr "Lesen."
 
-#: alerts/templates/email_notification.html:81
+#: alerts/templates/email_notification.html:82
 msgid "Read it now"
 msgstr "Lesen"
 
-#: alerts/templates/email_notification.html:97
+#: alerts/templates/email_notification.html:98
 msgid ""
 "\n"
 "                          Sent with\n"
@@ -61,28 +61,17 @@ msgstr ""
 "                          </span> von Storybeep gesendet.\n"
 "                          "
 
-#: alerts/templates/email_notification.html:105
+#: alerts/templates/email_notification.html:106
 msgid "No longer interested in this story?"
 msgstr "Bist du nicht weiter an der Story interessiert?"
 
-#: alerts/templates/email_notification.html:108
+#: alerts/templates/email_notification.html:109
 msgid "Unsubscribe."
 msgstr "Abbestellen."
 
-#: alerts/templates/email_notification.txt:1
+#: alerts/templates/email_notification.txt:2
 #, python-format
 msgid ""
-"\n"
-"Es gibt Neuigkeiten über das Thema %(story_title)s, dem du\n"
-"auf Storybeep folgst.\n"
-"\n"
-"Hier lesen.\n"
-"\n"
-"%(article_url)s\n"
-"\n"
-"- von Storybeep gesendet.\n"
-msgstr ""
-
 "\n"
 "There is a new article on %(story_title)s, a topic that\n"
 "you are tracking on storybeep.\n"
@@ -92,6 +81,7 @@ msgstr ""
 "%(article_url)s\n"
 "\n"
 "- sent with love from storybeep.\n"
+msgstr ""
 
 #: alerts/templates/landing.html:17
 #, python-format
@@ -121,3 +111,24 @@ msgstr "Folgen"
 #: alerts/templates/landing.html:34
 msgid "Learn more"
 msgstr "Erfahre mehr"
+
+#~ msgid ""
+#~ "\n"
+#~ "Es gibt Neuigkeiten über das Thema %(story_title)s, dem du\n"
+#~ "auf Storybeep folgst.\n"
+#~ "\n"
+#~ "Hier lesen.\n"
+#~ "\n"
+#~ "%(article_url)s\n"
+#~ "\n"
+#~ "- von Storybeep gesendet.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "There is a new article on %(story_title)s, a topic that\n"
+#~ "you are tracking on storybeep.\n"
+#~ "\n"
+#~ "Read the article to find out more.\n"
+#~ "\n"
+#~ "%(article_url)s\n"
+#~ "\n"
+#~ "- sent with love from storybeep.\n"

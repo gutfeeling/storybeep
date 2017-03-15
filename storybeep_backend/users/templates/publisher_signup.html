@@ -18,7 +18,7 @@
               {% csrf_token %}
               {{ form.password }}
               <button class="btn" type="submit">
-                Sign Up
+                {% trans "Sign Up" %}
               </button>
               {% if form.errors %}
               <div>

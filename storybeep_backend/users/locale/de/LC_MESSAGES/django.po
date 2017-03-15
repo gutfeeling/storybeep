@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 21:05+0100\n"
+"POT-Creation-Date: 2017-03-15 10:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,8 @@ msgstr "Anmelden"
 msgid "Don't have an account yet?"
 msgstr "Du hast noch kein Konto?"
 
-#: users/templates/login.html:36 users/templates/signup.html:22
+#: users/templates/login.html:36 users/templates/publisher_signup.html:21
+#: users/templates/signup.html:22
 msgid "Sign Up"
 msgstr "Registrieren"
 

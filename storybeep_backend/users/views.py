@@ -5,10 +5,10 @@ from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from django.contrib.auth import login
 from django.shortcuts import redirect
-from django.utils.translation import LANGUAGE_SESSION_KEY
 
 from storybeep_backend.views import SessionMixin
 from utils.sign import validate_code
+from utils.language import set_language_in_session
 from .models import StorybeepUser, VerifiedPublisher
 from .forms import SignupForm, PublisherSignupForm
 
@@ -82,7 +82,7 @@ class SignupView(SessionMixin, FormView):
         # the user's default settings
 
         language = new_user.settings.language
-        self.request.session[LANGUAGE_SESSION_KEY] = language
+        set_language_in_session(language, self.request.session)
 
         # this ensures the user automatically  starts tracking the story in
         # the landing page after the sign up process is complete.
@@ -201,6 +201,7 @@ class PublisherSignupView(FormView):
     def get(self, *args, **kwargs):
 
         publisher = self.get_publisher()
+        set_language_in_session(publisher.language, self.request.session)
 
         return super(PublisherSignupView, self).get(*args, **kwargs)
 
