@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-15 14:22+0100\n"
+"POT-Creation-Date: 2017-03-18 12:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,76 @@ msgstr ""
 msgid "Log In"
 msgstr "Anmelden"
 
-#: templates/base.html:61
+#: templates/base.html:61 templates/home.html:103
 msgid "Sign Up"
 msgstr "Registrieren"
+
+#: templates/home.html:18
+msgid "Get automatic updates on news stories."
+msgstr "Erhalte News-Updates automatisiert."
+
+#: templates/home.html:19
+msgid "Be the first to be informed about future developments."
+msgstr "Erfahre als erster, was passiert ist."
+
+#: templates/home.html:39
+msgid "Suppose a news article interests you."
+msgstr "Angenommen dich interessiert ein Artikel."
+
+#: templates/home.html:41
+msgid ""
+"\n"
+"                You stumbled upon a news article that you find\n"
+"                interesting or concerning.\n"
+"                "
+msgstr ""
+"\n"
+"                Du findest einen Artikel online, der dich interessiert\n"
+"                oder beschäfigt.\n"
+"                "
+
+#: templates/home.html:59
+msgid "Track it."
+msgstr "Folge dem Artikel."
+
+#: templates/home.html:61
+msgid ""
+"\n"
+"                If the news source is a storybeep partner, you will see a\n"
+"                tracking link at the bottom of the article.\n"
+"                "
+msgstr ""
+"\n"
+"                Wenn die Quelle des Artikels einem Storybeep-Partner\n"
+"                angehört, dann findest du einen Link am unteren Ende, mit\n"
+"                dem du der Newsstory folgen kannst."
+
+#: templates/home.html:80
+msgid "Get follow up articles in your inbox."
+msgstr "Erhalte Updates per E-Mail."
+
+#: templates/home.html:83
+msgid ""
+"\n"
+"                If you track the article, we will email you whenever the\n"
+"                newspaper publishes follow up articles. This means you "
+"don't\n"
+"                have to Google search everyday or rely on friends to stay up "
+"to\n"
+"                date.\n"
+"                "
+msgstr ""
+"\n"
+"                Wenn du der Newsstory folgst und sie aktualisiert wird,\n"
+"                dann erhälst du sofort eine Benachrichtigung.\n"
+"                Um also auf dem neuesten Stand zu bleiben, musst du nicht\n"
+"                permanent googlen oder dich auf deine Freunde verlassen.\n"
+"                "
+
+#: templates/home.html:101
+msgid "Sign up to track news stories."
+msgstr "Registriere dich jetzt, um Newsstorys zu folgen."
+
+#: templates/home.html:111
+msgid "A news tracking company from Munich, Germany."
+msgstr "Ein münchner Unternehmen."

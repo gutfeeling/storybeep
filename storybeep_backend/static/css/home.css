@@ -1,1 +1,90 @@
+body {
+  padding-bottom: 0rem;
+}
 
+#slogan {
+  margin: 12rem 0rem 12rem 0rem;
+}
+
+#slogan h1 {
+  font-size: 6rem;
+  color: #FF5A5F;
+  margin: 0;
+}
+
+
+#explanation {
+  background-color: rgb(250, 250, 250);
+}
+
+#first-explanation-row {
+  margin-top: 10rem;
+}
+
+.explanation-row {
+  margin-bottom: 10rem;
+}
+
+.explanation-text-container {
+  margin-left: 6rem;
+}
+
+.explanation-text {
+  font-size: 2.5rem;
+  color: #0088cc;
+}
+
+.explanation-text-container > p {
+  font-size: 2rem;
+}
+
+#cta {
+  padding: 15rem 0rem 15rem 0rem;
+  border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+#cta-text {
+  margin: 0rem 0rem 2.5rem 0rem;
+
+}
+
+#cta-button {
+  font-size: 2.5rem;
+}
+
+footer {
+  background-color: rgb(250, 250, 250);
+}
+
+#footer-logo {
+  padding: 4rem 0rem 4rem 0rem;
+  font-family: 'Comfortaa', cursive;
+  font-size: 4rem;
+  color: #FF5A5F;
+}
+
+#footer-text {
+  padding-bottom: 1rem;
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}

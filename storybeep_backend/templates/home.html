@@ -11,6 +11,105 @@
 
 {% block body_block %}
 {{ block.super }}
+<section id="slogan">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+          <h1>{% trans "Get automatic updates on news stories." %}</h1>
+          <h2>{% trans "Be the first to be informed about future developments." %}</h2>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="explanation">
+  <div class="container">
+    <!--div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <h3 id="explanation-heading">Here's how it works</h3>
+      </div>
+    </div -->
+    <div class="row explanation-row" id="first-explanation-row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-responsive" src="{% static 'images/first.svg' %}">
+          </div>
+          <div class="col-md-8">
+            <div class="explanation-text-container">
+              <h2 class="explanation-text">{% trans "Suppose a news article interests you." %}</h2>
+              <p>
+                {% blocktrans %}
+                You stumbled upon a news article that you find
+                interesting or concerning.
+                {% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row explanation-row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-responsive" src="{% static 'images/track.svg' %}">
+          </div>
+          <div class="col-md-8">
+            <div class="explanation-text-container">
+              <h2 class="explanation-text">{% trans "Track it." %}</h2>
+              <p>
+                {% blocktrans %}
+                If the news source is a storybeep partner, you will see a
+                tracking link at the bottom of the article.
+                {% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row explanation-row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-responsive" src="{% static 'images/follow_up.svg' %}">
+          </div>
+          <div class="col-md-8">
+            <div class="explanation-text-container">
+              <h2 class="explanation-text">
+                {% trans "Get follow up articles in your inbox." %}
+              </h2>
+              <p>
+                {% blocktrans %}
+                If you track the article, we will email you whenever the
+                newspaper publishes follow up articles. This means you don't
+                have to Google search everyday or rely on friends to stay up to
+                date.
+                {% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+          <h1 id="cta-text">{% trans "Sign up to track news stories." %}</h1>
+          <form action="/signup" method="get">
+            <button class="btn" id="cta-button" type="submit">{% trans "Sign Up" %}</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="text-center">
+  <p id="footer-logo">storybeep</p>
+  <p id="footer-text">{% trans "A news tracking company from Munich, Germany." %}</p>
+</footer>
 {% endblock %}
 
 {% block js_block %}
