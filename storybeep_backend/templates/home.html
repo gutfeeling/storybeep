@@ -15,8 +15,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-          <h1>{% trans "Get automatic updates on news stories." %}</h1>
-          <h2>{% trans "Be the first to be informed about future developments." %}</h2>
+          <h1>{% trans "Get automatic updates on news articles." %}</h1>
+          <h2>{% trans "" %}</h2>
       </div>
     </div>
   </div>
@@ -39,8 +39,6 @@
               <h2 class="explanation-text">{% trans "Suppose a news article interests you." %}</h2>
               <p>
                 {% blocktrans %}
-                You stumbled upon a news article that you find
-                interesting or concerning.
                 {% endblocktrans %}
               </p>
             </div>
@@ -81,10 +79,9 @@
               </h2>
               <p>
                 {% blocktrans %}
-                If you track the article, we will email you whenever the
-                newspaper publishes follow up articles. This means you don't
-                have to Google search everyday or rely on friends to stay up to
-                date.
+                If you track the article, we email you whenever the
+                newspaper updates the article or publishes a follow up articles
+                with new information.
                 {% endblocktrans %}
               </p>
             </div>
@@ -98,7 +95,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-          <h1 id="cta-text">{% trans "Sign up to track news stories." %}</h1>
+          <h1 id="cta-text">{% trans "Stay in the know for stories you care about." %}</h1>
           <form action="/signup" method="get">
             <button class="btn" id="cta-button" type="submit">{% trans "Sign Up" %}</button>
           </form>
