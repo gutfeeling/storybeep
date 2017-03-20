@@ -15,6 +15,6 @@ except ImproperlyConfigured:
 
 
 SECRET_KEY = get_environment_variable('DJANGO_SECRET_KEY')
-ALLOWED_HOSTS = ['storybeep.herokuapp.com']
+ALLOWED_HOSTS = ["storybeep.herokuapp.com", ".storybeep.com"]
 
 SITE_ID = 5
