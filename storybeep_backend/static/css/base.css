@@ -37,6 +37,10 @@ body {
   padding-bottom: 7em;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
 h1 {
   font-size: 3.2em;
 
@@ -81,8 +85,10 @@ a:hover, a:active, a:focus, a:active:focus {
 .navbar-default {
   background-color: #FFFFFF;
   border: none;
+  /*
   box-shadow: 0 1px 5px rgba(0,0,0,0.1);
   border-bottom: 1px solid rgb(220, 224, 224);
+  */
 }
 
 /* increase size of brand text in the navbar */
@@ -212,16 +218,36 @@ in mobile display */
 
 /* forms */
 
-form input {
+input {
   background: transparent;
   border-width: 0 0 1px 0;
   border-style: solid;
   border-color: rgb(150, 150, 150);
-  margin-bottom: 1.5em;
   vertical-align: bottom;
   line-height: 2em;
   font-size: 1.4em;
   width: 100%;
+  box-shadow: none;
+}
+
+.field-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.errors input  {
+  border-color: #ff0033;
+}
+
+.field-errors > p:first-of-type {
+  margin-top: 1em;
+}
+
+.field-errors > p:last-of-type {
+  margin-bottom: 1em;
+}
+
+.field-errors > p {
+  color: #ff0033;
 }
 
 

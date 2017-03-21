@@ -1,6 +1,7 @@
 from urllib.parse import urljoin
 
 from django import forms
+from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UsernameField, AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import get_language
@@ -9,6 +10,8 @@ from django.urls import reverse
 from django.contrib.sites.models import Site
 from django.db import transaction
 from django.conf import settings
+from django.core.validators import EmailValidator
+from django.template.loader import render_to_string
 import django_rq
 
 # not using get_user_model() because this unnecessarily obfuscates code
@@ -25,9 +28,14 @@ class LoginForm(AuthenticationForm):
         max_length = 254,
         widget = forms.TextInput(
             attrs = {"autofocus" : True,
-                     "placeholder" : _("Your Email"),
+                     "placeholder" : _("Email"),
                      }
-            )
+            ),
+        validators = [
+            EmailValidator(
+                message = "Enter a valid email address e.g. email@example.com."
+                ),
+            ],
         )
 
     password = forms.CharField(
@@ -38,26 +46,59 @@ class LoginForm(AuthenticationForm):
             )
         )
 
-    def clean_username(self):
-        """Raise error if the email has not been verified"""
+    def clean(self):
 
-        email = self.cleaned_data["username"]
-        try:
-            user = StorybeepUser.objects.get(email = email)
-            if not user.email_verified:
-                # need to include a send email verification link
-                raise forms.ValidationError("Email is not verified.")
-        except StorybeepUser.DoesNotExist:
-            pass
-        return email
+        username = self.cleaned_data.get("username")
+        password = self.cleaned_data.get("password")
+
+        if username is not None and password:
+
+            try:
+
+                user = StorybeepUser.objects.get(email = username)
+                if not user.email_verified:
+                    # need to include a send email verification link
+                    self.add_error(
+                        "username",
+                        forms.ValidationError(
+                            "This email is registered but has not been"
+                            " verified."),
+                        )
+                else:
+                    self.user_cache = authenticate(
+                        username=username, password=password
+                        )
+
+                    if self.user_cache is None:
+                        self.add_error(
+                            "password",
+                            forms.ValidationError("Wrong password."),
+                            )
+                    else:
+                        self.confirm_login_allowed(self.user_cache)
+
+            except StorybeepUser.DoesNotExist:
+                self.add_error(
+                    "username",
+                    forms.ValidationError(
+                        "This account is not registered with us."),
+                    )
+
+        return self.cleaned_data
+
 
 
 class SignupForm(forms.Form):
 
+    error_css_class = "error"
+
     email = forms.EmailField(
         widget = forms.TextInput(
-            attrs = {"placeholder" : _("Your Email")}
-            )
+            attrs = {"placeholder" : _("Email")}
+            ),
+        error_messages = {
+            "invalid" : "Enter a valid email address e.g. email@example.com."
+            }
         )
 
     password = forms.CharField(
@@ -72,7 +113,10 @@ class SignupForm(forms.Form):
         email = self.cleaned_data["email"]
         try:
             user = StorybeepUser.objects.get(email = email)
-            raise forms.ValidationError("User exists.")
+            if user.email_verified:
+                raise forms.ValidationError("This account already exists.")
+            else:
+                return email
         except StorybeepUser.DoesNotExist:
             return email
 
@@ -91,12 +135,31 @@ class SignupForm(forms.Form):
 
             # we should actually use signals to send the email
             # and give the user the resend option.
-            new_user = StorybeepUser.objects.create_user(email, password)
 
-            # set default settings for the user
             language = get_language()
-            new_user_settings = Settings(user = new_user, language = language)
-            new_user_settings.save()
+
+            try:
+                # this block runs if we have an user who is in the database
+                # but not verified. in this case, we repeat the sign up
+                # process, changing the password to the new one.
+                new_user = StorybeepUser.objects.get(email = email)
+                new_user.set_password(password)
+                new_user.save()
+
+                settings = new_user.settings
+                settings.language = language
+                settings.save()
+
+            except StorybeepUser.DoesNotExist:
+                # this is what usually happens
+                new_user = StorybeepUser.objects.create_user(email, password)
+
+                # set default settings for the user
+
+                new_user_settings = Settings(
+                    user = new_user, language = language
+                    )
+                new_user_settings.save()
 
             self.send_verification_email(new_user)
 
@@ -116,6 +179,20 @@ class SignupForm(forms.Form):
 
         link_absolute = urljoin("http://" + domain, link_relative)
 
+        # change http to https at some point
+        storybeep_logo_url = ("http://{0}/static/images/"
+            "storybeep_logo.png".format(domain))
+
+        text_message = render_to_string("activation_email.txt",
+            {"link_absolute" : link_absolute}
+            )
+
+        html_message = render_to_string("activation_email.html",
+            {"storybeep_logo_url" : storybeep_logo_url,
+             "activation_url" : link_absolute,
+             }
+            )
+
         try:
             mailer = settings.MAILER
         except AttributeError:
@@ -123,9 +200,10 @@ class SignupForm(forms.Form):
 
         django_rq.enqueue(
             user.send_email,
-            subject = "Verify your email.",
-            message = link_absolute,
-            from_email = mailer,
+            subject = "Activate your Storybeep account.",
+            message = text_message,
+            html_message = html_message,
+            from_email = "Storybeep <{0}>".format(mailer),
             )
 
 
@@ -133,11 +211,11 @@ class PublisherSignupForm(forms.Form):
 
     password = forms.CharField(
         widget = forms.PasswordInput(
-            attrs = {"placeholder" : _("Password")}
+            attrs = {"placeholder" : _("Create a password")}
             )
         )
 
-    def save(self, email, language):
+    def save(self, email, language, name):
         password = self.cleaned_data["password"]
 
         with transaction.atomic():
@@ -147,7 +225,9 @@ class PublisherSignupForm(forms.Form):
             new_user.email_verified = True
             new_user.save()
 
-            new_user_settings = Settings(user = new_user, language = language)
+            new_user_settings = Settings(
+                user = new_user, language = language, name = name
+                )
             new_user_settings.save()
 
         return new_user

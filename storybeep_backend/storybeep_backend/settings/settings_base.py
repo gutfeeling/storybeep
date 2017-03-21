@@ -199,6 +199,41 @@ PIPELINE = {
                 ),
             "output_filename" : "css/publisher_home.min.css",
             },
+        "signup_successful" : {
+            "source_filenames" : (
+                "css/vertical_center.css",
+                "css/signup_successful.css",
+                ),
+            "output_filename" : "css/signup_successful.min.css",
+            },
+        "settings" : {
+            "source_filenames" : (
+                "css/nice-select.css",
+                "css/settings.css",
+                ),
+            "output_filename" : "css/settings.min.css",
+            },
+        "reader_home" : {
+            "source_filenames" : (
+                "css/reader_home.css",
+                ),
+            "output_filename" : "css/reader_home.min.css",
+            },
+        },
+    "JAVASCRIPT" : {
+        "base" : {
+            "source_filenames" : (
+                "js/base.js",
+                ),
+            "output_filename" : "js/base.min.js",
+            },
+        "settings" : {
+            "source_filenames" : (
+                "js/jquery.nice-select.js",
+                "js/settings.js",
+                ),
+            "output_filename" : "js/settings.min.js",
+            },
         },
     }
 

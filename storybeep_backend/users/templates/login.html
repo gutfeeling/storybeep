@@ -16,21 +16,34 @@
           <div class="col-sm-offset-4 col-sm-4">
             <form id="login" method="post" action="{% url 'login_view' %}">
               {% csrf_token %}
-              {{ form.username }}
-              {{ form.password }}
+
+              {% for hidden in form.hidden_fields %}
+              {{ hidden }}
+              {% endfor %}
+
+              {% for field in form.visible_fields %}
+              <div class="field-wrapper {% if field.errors %}
+                   errors{% endif %}">
+                {{ field }}
+                <div class="field-errors">
+                  {% for error in field.errors %}
+                  <p>
+                    {{ error| escape }}
+                  </p>
+                  {% endfor %}
+                </div>
+              </div>
+              {% endfor %}
               <input type="hidden" name="next" value="{{ next }}" />
-              <button class="btn" type="submit">
+              <button class="tracking-btn" type="submit">
                 {% trans "Log In" %}
               </button>
-              {% if form.errors %}
-                <div>
-                  <p>
-                    There was a problem with the login. Please try again.
-                  </p>
-                </div>
-              {% endif %}
             </form>
-            <div>
+            <div id="forgot-password">
+              Forgot password?
+              <a href="#">Reset it.</a>
+            </div>
+            <div id="sign-up">
               {% trans "Don't have an account yet?" %}
               <a href="/signup">
                 {% trans "Sign Up" %}

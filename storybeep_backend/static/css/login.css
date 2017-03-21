@@ -2,11 +2,16 @@ form {
   margin-bottom: 2em;
 }
 
-form input {
-  margin-bottom: 1.25em;
+.tracking-btn {
+  margin: 2.2rem 0rem 2.2rem 0;
+  font-size: 2.2rem;
 }
 
-.btn {
-  margin-top: 1em;
-  font-size: 1.25em;
+#forgot-password {
+  margin-bottom: 1rem;
+  color: rgb(125, 125, 125);
+}
+
+#sign-up{
+  color: rgb(125, 125, 125);
 }

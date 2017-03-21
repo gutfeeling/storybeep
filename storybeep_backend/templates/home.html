@@ -14,8 +14,8 @@
 <section id="slogan">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
-          <h1>{% trans "Get automatic updates on news articles." %}</h1>
+      <div class="col-md-offset-2 col-md-8">
+          <h1>{% trans "Get automatic updates on news stories." %}</h1>
           <h2>{% trans "" %}</h2>
       </div>
     </div>
@@ -32,11 +32,11 @@
       <div class="col-md-offset-2 col-md-8">
         <div class="row">
           <div class="col-md-4">
-            <img class="img-responsive" src="{% static 'images/first.svg' %}">
+            <img class="img-responsive" src="{% static 'images/first_white.svg' %}">
           </div>
           <div class="col-md-8">
             <div class="explanation-text-container">
-              <h2 class="explanation-text">{% trans "Suppose a news article interests you." %}</h2>
+              <h2 class="explanation-text">{% trans "Suppose a news story interests you." %}</h2>
               <p>
                 {% blocktrans %}
                 {% endblocktrans %}
@@ -50,7 +50,7 @@
       <div class="col-md-offset-2 col-md-8">
         <div class="row">
           <div class="col-md-4">
-            <img class="img-responsive" src="{% static 'images/track.svg' %}">
+            <img class="img-responsive" src="{% static 'images/track_white.svg' %}">
           </div>
           <div class="col-md-8">
             <div class="explanation-text-container">
@@ -70,7 +70,7 @@
       <div class="col-md-offset-2 col-md-8">
         <div class="row">
           <div class="col-md-4">
-            <img class="img-responsive" src="{% static 'images/follow_up.svg' %}">
+            <img class="img-responsive" src="{% static 'images/follow_up_white.svg' %}">
           </div>
           <div class="col-md-8">
             <div class="explanation-text-container">
@@ -79,9 +79,8 @@
               </h2>
               <p>
                 {% blocktrans %}
-                If you track the article, we email you whenever the
-                newspaper updates the article or publishes a follow up article
-                with new information.
+                If you track the article, we wiill email you whenever the
+                newspaper publishes a follow up article.
                 {% endblocktrans %}
               </p>
             </div>
@@ -95,9 +94,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-          <h1 id="cta-text">{% trans "Stay in the know for stories you care about." %}</h1>
+          <h1 id="cta-text">{% trans "Stay informed effortlessly." %}</h1>
           <form action="/signup" method="get">
-            <button class="btn" id="cta-button" type="submit">{% trans "Sign Up" %}</button>
+            <button class="tracking-btn" id="cta-button" type="submit">{% trans "Sign Up" %}</button>
           </form>
       </div>
     </div>

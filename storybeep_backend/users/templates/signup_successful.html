@@ -1,11 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load pipeline %}
+{% load i18n %}
+
+{% block css_block %}
+{{ block.super }}
+    {% stylesheet 'signup_successful' %}
+{% endblock %}
 
 {% block body_block %}
 {{ block.super }}
-    <h2>
-      We have sent you an email. Please click on the activation link in the
-      email to activate your account.
-    </h2>
+<div class="container container-table">
+  <div class="row vertical-center-row">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <h1>
+          {% blocktrans %}
+          We have sent you an activation email.
+          {% endblocktrans %}
+        </h1>
+        <h3>
+          Open the email to activate your account.
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

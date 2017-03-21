@@ -1,0 +1,19 @@
+#main-row {
+  margin-top: 8rem;
+}
+
+#main-heading {
+  font-weight : 700;
+  letter-spacing: 0.1rem;
+  margin-bottom: 6rem;
+}
+
+.story-container {
+  padding: 4rem 0rem 4rem 0rem;
+  border-top: 1px solid rgb(240, 240, 240);
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+.story-title {
+  font-size: 3rem;
+}

@@ -3,21 +3,46 @@
 {% load pipeline %}
 {% load i18n %}
 
+{% block css_block %}
+{{ block.super }}
+    {% stylesheet 'settings' %}
+{% endblock %}
+
 {% block body_block %}
 {{ block.super }}
     <div class="container">
-      <div class="row">
+      <div class="row" id="settings-row">
         <div class="col-sm-offset-2 col-sm-8">
-          <h1>Settings</h1>
+          <h1 id="settings-text">Settings</h1>
           <form action="/settings/" method="post">
-              {% csrf_token %}
-              {{ form }}
-              <br>
-              <button class="btn" type="submit">
-                Save
-              </button>
+            {% csrf_token %}
+            <h4 id="language-settings-text">Language settings</h4>
+            <div class="settings-item-container">
+              <div class="row settings-item">
+                <div class="col-md-8">
+                  <h3 class="settings-item-heading">Your preferred language</h3>
+                  <h4 class="settings-item-subheading">
+                    We will display the website and write emails to you in
+                    this language.
+                  </h4>
+                </div>
+                <div class="col-md-4">
+                  <div class="box">
+                    {{ form.language }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="tracking-btn" id="save-button" type="submit">
+              Save
+            </button>
           </form>
         </div>
       </div>
     </div>
+{% endblock %}
+
+{% block js_block %}
+{{ block.super }}
+   {% javascript 'settings' %}
 {% endblock %}

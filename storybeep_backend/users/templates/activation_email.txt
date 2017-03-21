@@ -1,0 +1,10 @@
+{% load i18n %}
+{% blocktrans %}
+Welcome to Storybeep!
+
+To activate your account, please visit the link below.
+
+{{ activation_url }}
+
+- sent with love from Storybeep.
+{% endblocktrans %}
