@@ -211,7 +211,7 @@ class PublisherSignupView(FormView):
         publisher = self.get_publisher()
 
         #Add the publisher as an user and log him in.
-        user = form.save(publisher.email, publisher.language)
+        user = form.save(publisher.email, publisher.language, publisher.name)
         login(self.request, user)
 
         return super(PublisherSignupView, self).form_valid(form)

@@ -56,13 +56,14 @@ class StorybeepUser(AbstractBaseUser):
     def get_short_name(self):
         return self.email
 
-    def send_email(self, subject, message, from_email):
+    def send_email(self, subject, message, html_message, from_email):
         """
         Sends an email to the user using the django.core.mail module
         """
         send_mail(
             subject = subject,
             message = message,
+            html_message = html_message,
             from_email = from_email,
             recipient_list = [self.email],
             fail_silently = False,
@@ -78,6 +79,7 @@ class VerifiedPublisher(models.Model):
     """
     email = models.EmailField(unique=True)
     language = models.CharField(max_length = 10, choices = settings.LANGUAGES)
+    name = models.CharField(max_length = 100)
 
     def save(self, *args, **kwargs):
         """ We override the save method to automatically send an invitation
@@ -129,7 +131,9 @@ class Settings(models.Model):
     user = models.OneToOneField(StorybeepUser)
     # how many characters do we actually need?
     language = models.CharField(max_length = 10, choices = settings.LANGUAGES)
+    name = models.CharField(max_length = 100, null = True)
 
     def __str__(self):
-        return "user: {0} language: {1}".format(self.user.email,
-            self.language)
+        return "user: {0} language: {1} name: {2}".format(self.user.email,
+            self.language, self.name
+            )
