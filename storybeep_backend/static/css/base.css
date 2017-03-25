@@ -128,7 +128,7 @@ a:hover, a:active, a:focus, a:active:focus {
 }
 
 #translate-image-container {
-  width: 5rem;
+  width: 2.4rem;
 }
 
 #translate-image {
@@ -325,12 +325,5 @@ input:focus {
   .navbar-default .nav > li.dropdown > a:active:focus {
     box-shadow: none;
   }
-
-  #translate-image-container {
-    width: 3.5rem;
-  }
-
-
-
 
 }
