@@ -225,11 +225,14 @@ input {
   border-width: 0 0 1px 0;
   border-style: solid;
   border-color: rgb(150, 150, 150);
-  vertical-align: bottom;
-  line-height: 2em;
+  line-height: normal;
   font-size: 1.4em;
   width: 100%;
   box-shadow: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 .field-wrapper {
