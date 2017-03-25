@@ -234,6 +234,12 @@ PIPELINE = {
                 ),
             "output_filename" : "js/settings.min.js",
             },
+        "reader_home" : {
+            "source_filenames" : (
+                "js/reader_home.js",
+                ),
+            "output_filename" : "js/reader_home.min.js",
+            },
         },
     }
 
@@ -248,7 +254,7 @@ EMAIL_PORT = get_environment_variable("EMAIL_PORT")
 EMAIL_HOST_USER = get_environment_variable("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = get_environment_variable("EMAIL_HOST_PASSWORD")
 
-MAILER = "mailtest@storybeep.com"
+MAILER = "email@storybeep.com"
 
 SITE_ID = 4
 

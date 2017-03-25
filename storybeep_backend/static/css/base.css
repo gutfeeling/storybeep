@@ -85,10 +85,8 @@ a:hover, a:active, a:focus, a:active:focus {
 .navbar-default {
   background-color: #FFFFFF;
   border: none;
-  /*
   box-shadow: 0 1px 5px rgba(0,0,0,0.1);
   border-bottom: 1px solid rgb(220, 224, 224);
-  */
 }
 
 /* increase size of brand text in the navbar */

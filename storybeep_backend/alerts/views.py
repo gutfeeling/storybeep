@@ -3,11 +3,14 @@ from django.views import View
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.http import Http404
+from django.http import HttpResponse
 
 from storybeep_backend.views import CommonContextMixin
 from users.views import ReaderOnlyAccessMixin
+from users.models import StorybeepUser
 from stories.models import Article, Story
-from alerts.models import Alert
+from alerts.models import Alert, ReadingData
+from utils.sign import validate_code
 
 
 class LandingView(CommonContextMixin, TemplateView):
@@ -132,6 +135,68 @@ class StopTrackingView(ReaderOnlyAccessMixin, View):
         try:
             this_alert = Alert.objects.get(id = alert_id)
             this_alert.delete()
-            return redirect(reverse_lazy("home_view"))
+            return HttpResponse("")
         except Alert.DoesNotExist:
             raise Http404
+
+
+class ReadView(View):
+
+    def get_user(self):
+
+        hmac_code = self.request.GET.get("hmac_code", None)
+
+        if hmac_code is None:
+
+            # reading directly from website
+            if self.request.user.is_authenticated:
+                return self.request.user
+            else:
+                # users who are not logged in should not get access to
+                # these links. so this situation should not arise
+                # unless someone directly writes the url on the
+                # address bar.
+                return None
+
+        # reading from email
+
+        email = validate_code(hmac_code, None)
+
+        if email is not None:
+            try:
+                user = StorybeepUser.objects.get(email = email)
+                return user
+            except StorybeepUser.DoesNotExist:
+                return None
+
+    def get_article(self):
+
+        url = self.request.GET.get("url", None)
+
+        try:
+            article = Article.objects.get(url = url)
+            return article
+        except Article.DoesNotExist:
+            return None
+
+    def get(self, *args, **kwargs):
+
+        article = self.get_article()
+        user = self.get_user()
+
+        if article is None or user is None:
+            raise Http404
+
+        try:
+            reading_data = ReadingData.objects.get(
+                user = user, article = article
+                )
+            reading_data.count += 1
+            reading_data.save()
+        except ReadingData.DoesNotExist:
+            new_reading_data = ReadingData(
+                user = user, article = article, count = 1
+                )
+            new_reading_data.save()
+
+        return redirect(article.url)

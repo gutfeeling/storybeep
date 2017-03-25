@@ -15,10 +15,10 @@ def get_hmac_code(email):
     return hmac_code
 
 
-def validate_code(code):
+def validate_code(code, max_age = max_age_in_days*86400):
 
     try:
-        data = signing.loads(code, salt = salt, max_age = max_age_in_days*86400)
+        data = signing.loads(code, salt = salt, max_age = max_age)
         return data
     except signing.BadSignature:
         return None

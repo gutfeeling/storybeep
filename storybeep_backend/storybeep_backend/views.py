@@ -64,7 +64,12 @@ class HomeView(CommonContextMixin, SessionMixin, TemplateView):
                 #story upon login.
                 self.track_stories_from_session_data(user)
 
-                context["object_list"] = Alert.objects.filter(user = user)
+                alerts = Alert.objects.filter(user = user)
+                alerts_sorted_by_unread = sorted(
+                    alerts, key = lambda item: -item.unread_count()
+                    )
+
+                context["object_list"] = alerts_sorted_by_unread
 
         return context
 

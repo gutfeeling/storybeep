@@ -51,8 +51,15 @@
 }
 
 .nice-select {
+  margin-top: 3rem;
   font-size: 2rem;
   height: 5rem;
   line-height: 220%;
-  float: right;
+}
+
+@media (min-width: 991px) {
+  .nice-select {
+    float: right;
+    margin-top: 0;
+  }
 }

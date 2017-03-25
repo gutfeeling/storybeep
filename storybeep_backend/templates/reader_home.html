@@ -5,6 +5,12 @@
 
 {% block css_block %}
 {{ block.super }}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/pretty-checkbox/2.1.0/pretty.min.css"
+          rel="stylesheet">
     {% stylesheet 'reader_home' %}
 {% endblock %}
 
@@ -13,26 +19,45 @@
 <div class="container">
   <div class="row" id="main-row">
     <div class="col-sm-offset-2 col-sm-8">
-      <h1 id="main-heading">Tracked stories</h2>
+      <h1 id="main-heading">Tracked stories</h1>
+      <div id="icon-row">
+        <a id="delete-icon" href="#">Stop tracking</a>
+      </div>
       {% for alert in object_list %}
       <div class="story-container">
         <div class="row">
-          <div class="col-md-8">
-            <h2 class="story-title">
-              {{ alert.story.title }}
-              (14)
-            </h2>
+          <div class="col-xs-1">
+            <div class="checkbox-container">
+              <div class="pretty">
+                <input type="checkbox" id="{{ alert.id }}">
+                <label>
+                    <i class="fa fa-check"></i>
+                </label>
+              </div>
+            </div>
           </div>
-          <div class="col-md-4">
-          </div>
+          <!--a href="#"-->
+            <div class="col-xs-offset-1 col-xs-9 col-sm-offset-0 col-sm-10">
+              <h2 class="story-title">
+                {{ alert.story.title }}
+              </h2>
+              <h4 class="publisher">by {{ alert.publisher_name }}</h4>
+            </div>
+            <!--div class="col-md-2">
+              <h4 class="badge">{{ alert.unread_count }} new</h4>
+            </div-->
+          <!--/a-->
         </div>
-        <!---form method="post" action= "{% url 'stop_tracking_view' alert_id=alert.id %}">
-          {% csrf_token %}
-          <button type="submit">Stop Tracking</button>
-        </form-->
       </div>
+      {% empty %}
+      <div id="empty">You are currently not tracking any stories.</div>
       {% endfor %}
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block js_block %}
+{{ block.super }}
+    {% javascript 'reader_home' %}
 {% endblock %}

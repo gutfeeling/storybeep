@@ -5,7 +5,7 @@
 #main-heading {
   font-weight : 700;
   letter-spacing: 0.1rem;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 .story-container {
@@ -16,4 +16,38 @@
 
 .story-title {
   font-size: 3rem;
+  margin-bottom: 2rem;
+  color: rgb(75, 75, 75);
+}
+
+.publisher {
+  color: rgb(150, 150, 150);
+}
+
+.badge{
+  background: #0088cc;
+  font-size: 1.4rem;
+}
+
+#delete-icon {
+  display: none;
+  color: #ff0033;
+  font-size: 2rem;
+}
+
+#icon-row {
+  height: 4rem;
+}
+
+.pretty {
+  font-size: 1.5rem;
+}
+
+.checkbox-container {
+  margin-left: 1rem;
+}
+
+#empty {
+  font-size: 2rem;
+  color: rgb(150, 150, 150);
 }

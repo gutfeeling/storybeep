@@ -1,25 +1,19 @@
 body {
+  /* the home page for anonymous users have a footer. therefore, we
+    don't need additional space at the bottom of the page */
   padding-bottom: 0rem;
 }
 
 #slogan {
-  margin: 12rem 0rem 6rem 0rem;
+  margin-top: 12rem ;
+  margin-bottom:6rem;
 }
 
 #slogan h1 {
   font-size: 6rem;
-  margin: 0;
   color: #FF5A5F;
   font-weight: bold;
   line-height: 8rem;
-}
-
-#explanation {
-  /*
-  border-top: 1px solid rgb(175, 175, 175);
-  border-bottom: 1px solid rgb(175, 175, 175);
-  background-color: rgb(250, 250, 250);
-  */
 }
 
 #first-explanation-row {
@@ -30,29 +24,31 @@ body {
   margin-bottom: 10rem;
 }
 
-.explanation-text-container {
-  margin-left: 6rem;
-}
-
 .explanation-text {
-  font-size: 2.4rem;
-  color: #0088cc;
   margin-bottom: 1.5rem;
+
+  color: #0088cc;
+
+  font-size: 2.4rem;
+  line-height: 3.5rem;
 }
 
 .explanation-text-container > p {
-  font-size: 2rem;
   color: rgb(125, 125, 125);
+
+  font-size: 1.8rem;
+  line-height: 3rem;
 }
 
 #cta {
-  padding: 8rem 0rem 18rem 0rem;
-  border-bottom: 1px solid rgb(175, 175, 175);
+  /* the margin-bottom from the last .explanation-row and the padding-top of
+     this element add upto 18rem */
+  padding-top: 8rem;
+  padding-bottom: 18rem;
 }
 
 #cta-text {
-  margin: 0rem 0rem 2.5rem 0rem;
-
+  margin-bottom: 2.5rem;
 }
 
 #cta-button {
@@ -60,16 +56,38 @@ body {
 }
 
 footer {
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(75, 75, 75);
+  border-top: 1px solid rgb(175, 175, 175);
+  box-shadow: 0 -3px 5px rgba(0,0,0,0.1);
 }
 
 #footer-logo {
-  padding: 4rem 0rem 4rem 0rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
   font-family: 'Comfortaa', cursive;
   font-size: 4rem;
   color: #FF5A5F;
 }
 
 #footer-text {
-  padding-bottom: 1rem;
+  padding-bottom: 2.5rem;
+  margin-bottom: 0rem;
+
+  color: rgb(150, 150, 150);
+}
+
+
+@media (min-width: 992px) {
+  .explanation-text-container {
+    margin-left: 6rem;
+  }
+
+  .explanation-text {
+    font-size: 2.4rem;
+  }
+
+  .explanation-text-container > p {
+    font-size: 2rem;
+  }
 }

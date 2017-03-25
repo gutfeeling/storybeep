@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
-from alerts.views import LandingView, StartTrackingView, StopTrackingView
+from alerts.views import (LandingView, StartTrackingView, StopTrackingView,
+                          ReadView)
 
 urlpatterns = [
     url(
@@ -17,5 +18,10 @@ urlpatterns = [
         regex  = r"^stop-tracking/(?P<alert_id>.+)/$",
         view = StopTrackingView.as_view(),
         name = "stop_tracking_view",
+        ),
+    url(
+        regex = r"^read/$",
+        view = ReadView.as_view(),
+        name = "read_view",
         ),
     ]
