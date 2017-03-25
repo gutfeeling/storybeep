@@ -127,8 +127,12 @@ a:hover, a:active, a:focus, a:active:focus {
   outline: none;
 }
 
-.navbar-default .nav > li.dropdown > a > img {
-  width: 1.6em;
+#translate-image-container {
+  width: 3.5rem;
+}
+
+#translate-image {
+  width: 100%;
 }
 
 .navbar-default .nav .caret {
